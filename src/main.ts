@@ -2,8 +2,9 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './routes/router';
 import store from './vuex/store';
-import '@/plugins/index.ts'
+import * as d3 from 'd3'
 
+Vue.prototype.$d3 = d3
 Vue.config.productionTip = false;
 
 new Vue({
