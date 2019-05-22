@@ -32,17 +32,19 @@ export default class D2 extends Vue {
     rootNode.fixed = true
     const forceX = this.$d3.forceX(this.width / 2).strength(0.015)
     const forceY = this.$d3.forceY(this.height / 2).strength(0.015)
-    let force = this.$d3.forceSimulation()
+    const force = this.$d3.forceSimulation()
       .velocityDecay(0.2)
-      .force("x", forceX)
-      .force("y", forceY)
-      .force("collide", this.$d3.forceCollide().radius((d: any) =>{
-        if(d === rootNode){
-          return Math.random() * 50 +100;
+      .force('x', forceX)
+      .force('y', forceY)
+      .force('collide', this.$d3.forceCollide().radius((d: any) => {
+        if (d === rootNode ) {
+          return Math.random() * 50 + 100;
         }
         return d.radius + 0.5;
-      }).iterations(5)) 
-      .nodes(nodes).on("tick", ticked)
+      })
+      .iterations(5))
+      .nodes(nodes)
+      .on('tick', ticked)
     const $svg = this.$d3.select('#svg')
       .attr('width', this.width)
       .attr('height', this.height)
@@ -57,11 +59,11 @@ export default class D2 extends Vue {
         return color(i % 3)
       })
     function ticked(e: any) {
-      $svg.selectAll("circle")
-        .attr("cx", function(d: any) { return d.x })
-        .attr("cy", function(d: any) { return d.y });
+      $svg.selectAll('circle')
+        .attr('cx', (d: any) => d.x )
+        .attr('cy', (d: any) => d.y );
     }
-    $svg.on("mousemove", () => {
+    $svg.on('mousemove', () => {
       const p1 = self.$d3.mouse(this.$el);
       rootNode.fx = p1[0];
       rootNode.fy = p1[1];

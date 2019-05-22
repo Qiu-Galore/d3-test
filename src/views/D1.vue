@@ -61,7 +61,7 @@ export default class D1 extends Vue {
       .rangeRound([0, this.width - this.margin.left - this.margin.right])
     const xAxis = this.$d3.axisBottom(xScale)
     $g.append('g')
-      .attr('transform', `translate( 0, ${this.height - 2*this.margin.bottom})`)
+      .attr('transform', `translate( 0, ${this.height - 2 * this.margin.bottom})`)
       .call(xAxis)
     // y坐标
     const yScale = this.$d3.scaleLinear()
@@ -85,7 +85,7 @@ export default class D1 extends Vue {
       .range(color)
     $bar.append('rect')
       .attr('x', (d: any, i: number) => {
-        return xScale(i) + padding/2
+        return xScale(i) + padding / 2
       })
       .attr('y', (d: any, i: number) => {
         return yScale(d)
@@ -103,13 +103,13 @@ export default class D1 extends Vue {
       })
     $bar.append('text')
       .attr('x', (d: any, i: number) => {
-        return xScale(i) + padding/2
+        return xScale(i) + padding / 2
       })
       .attr('y', (d: any, i: number) => {
         return yScale(d) + 10
       })
       .attr('dx', (d: any, i: number) => {
-        return (xScale.step() - padding)/2
+        return (xScale.step() - padding) / 2
       })
       .text((d: any) => {
         return d
