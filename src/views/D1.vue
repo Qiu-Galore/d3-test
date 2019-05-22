@@ -114,6 +114,7 @@ export default class D1 extends Vue {
       .text((d: any) => {
         return d
       })
+      
   }
 }
 </script>
