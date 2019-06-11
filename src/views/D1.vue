@@ -114,7 +114,6 @@ export default class D1 extends Vue {
       .text((d: any) => {
         return d
       })
-      
   }
 }
 </script>
@@ -123,9 +122,6 @@ export default class D1 extends Vue {
 .d1{
   >p{
     cursor: pointer;
-  }
-  >rect{
-    
   }
 }
 </style>

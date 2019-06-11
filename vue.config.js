@@ -47,7 +47,6 @@ module.exports = {
     port: 10000,
     https: false,
     hotOnly: true,
-    noInfo: true,
     hot: true,
     // proxy: {
     //   '/workbench': {

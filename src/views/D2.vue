@@ -2,7 +2,7 @@
   <div class='d2'>
      <h1>d2</h1>
      <div>
-      <svg id="svg">
+      <svg id="svg" ref='svg'>
       </svg>
     </div>
   </div>
@@ -16,7 +16,7 @@ export default class D2 extends Vue {
   private width: number = 960
   private height: number = 500
   private mounted() {
-    console.log(this.$d3, '-----------this.$d3----------')
+    // console.log(this.$d3, '-----------this.$d3----------')
     this.drawChart()
   }
   private async drawChart() {
@@ -46,8 +46,10 @@ export default class D2 extends Vue {
       .nodes(nodes)
       .on('tick', ticked)
     const $svg = this.$d3.select('#svg')
-      .attr('width', this.width)
-      .attr('height', this.height)
+      .attrAll({
+        width: this.width,
+        height: this.height
+      })
     $svg.selectAll('circle')
       .data(nodes.slice(1))
       .enter()
@@ -60,11 +62,13 @@ export default class D2 extends Vue {
       })
     function ticked(e: any) {
       $svg.selectAll('circle')
-        .attr('cx', (d: any) => d.x )
-        .attr('cy', (d: any) => d.y );
+        .attrAll({
+          cx: (d: any) => d.x,
+          cy: (d: any) => d.y
+        })
     }
     $svg.on('mousemove', () => {
-      const p1 = self.$d3.mouse(this.$el);
+      const p1 = self.$d3.mouse(this.$refs.svg);
       rootNode.fx = p1[0];
       rootNode.fy = p1[1];
       force.alphaTarget(0.5).restart()
