@@ -35,8 +35,7 @@ module.exports = {
         test: /\.scss$/,
         loader: 'scss-loader'
       }
-    },
-    modules: false
+    }
   },
   parallel: true,
   pwa: {},

@@ -35,14 +35,14 @@ export default class D3 extends Vue {
           d3.active(this)
               .styleTween('background-color', () => whiteblue)
             .transition()
-              .delay(1000)
+              .delay(self.num)
               .styleTween('background-color', () => blueorange)
             .transition()
               .delay(self.num)
               .styleTween('background-color', () => orangewhite)
             .transition()
               .delay(self.num)
-              // .on('start', repeat)
+              .on('start', repeat)
         })
   }
 }
