@@ -1,10 +1,7 @@
 <template>
   <div class='d2'>
-     <h1>d2</h1>
-     <div>
-      <svg id="svg" ref='svg'>
-      </svg>
-    </div>
+    <svg id="svg" ref='svg'>
+    </svg>
   </div>
 </template>
 
@@ -20,6 +17,8 @@ export default class D2 extends Vue {
     this.drawChart()
   }
   private async drawChart() {
+    this.width = document.body.clientWidth
+    this.height = document.body.clientHeight
     const self = this
     const nodes = this.$d3.range(200).map(() => {
       return {

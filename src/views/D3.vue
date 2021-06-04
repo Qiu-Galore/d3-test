@@ -1,6 +1,5 @@
 <template>
   <div class='d3'>
-    <h1>d3</h1>
     <div id='chained'></div>
   </div>
 </template>
@@ -17,6 +16,8 @@ export default class D3 extends Vue {
     this.drawChart()
   }
   private async drawChart() {
+    this.width = document.body.clientWidth
+    this.height = document.body.clientHeight
     const d3 = this.$d3
     const self = this
     const whiteblue = d3.interpolateRgb('#eee', 'steelblue')
